@@ -1,6 +1,9 @@
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
-	
+    info.changeScoreBy(1)
+    chicken.setPosition(randint(0, 160), randint(0, 120))
+    info.startCountdown(10)
 })
+let chicken: Sprite = null
 scene.setBackgroundColor(9)
 let mySprite = sprites.create(img`
     . . 4 4 4 . . . . 4 4 4 . . . . 
@@ -19,7 +22,7 @@ let mySprite = sprites.create(img`
     . . . f f . . f f . . f f . . . 
     `, SpriteKind.Player)
 controller.moveSprite(mySprite)
-let chicken = sprites.create(img`
+chicken = sprites.create(img`
     ..........bbbbbb................
     .......bbb444444bb..............
     .....2244444ddd444b.............
